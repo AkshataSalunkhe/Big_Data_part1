@@ -1,74 +1,74 @@
 # Big_Data_part1
 
-Running Postgres Three Node Cluster
-Open virtual machine and terminal
-bd
-cd docker
-ls
+Running Postgres Three Node Cluster  
+Open virtual machine and terminal  
+bd  
+cd docker  
+ls  
 ​
-If the defined cluster is not found then:
-And you have changes in your local machine
-git status
-git add.
-git commit -m "comment"
+If the defined cluster is not found then:  
+And you have changes in your local machine  
+git status  
+git add.  
+git commit -m "comment"  
 ​
-If you don’t have any changes in your local machine then:
-git pull origin main
-git merge origin/main
+If you don’t have any changes in your local machine then:  
+git pull origin main  
+git merge origin/main  
 ​
-Then again check for repository
-ls
-cd PostgresCluster
-ls -la
-cat docker-compose.yaml
-docker compose up -d
+Then again check for repository  
+ls  
+cd PostgresCluster  
+ls -la  
+cat docker-compose.yaml  
+docker compose up -d  
 ​
-Open browser and connect to localhost:6050
-username :admin@admin.com
-Password  :admin
-Adding Servers
-Click on add servers or right click on server>register>servers
-Under general tab fill Name
-Under connection tab fill host name, username and password.(check the yaml file in terminal)
-Simple Sharding
-bd
-cd docker
-ls
-cd PostgresCluster
+Open browser and connect to localhost:6050  
+username :admin@admin.com  
+Password  :admin  
+Adding Servers  
+Click on add servers or right click on server>register>servers  
+Under general tab fill Name  
+Under connection tab fill host name, username and password.(check the yaml file in terminal)  
+Simple Sharding  
+bd  
+cd docker  
+ls  
+cd PostgresCluster  
 
-#To check if any node is running
-docker ps
+#To check if any node is running  
+docker ps  
 
-#To stop running nodes
-docker compose stop
+#To stop running nodes  
+docker compose stop  
 
-#To start nodes
-docker compose up
+#To start nodes  
+docker compose up  
 ​
-Open browser and connect to localhost:6050
-username :admin@admin.com
-Password  :admin
-Check there are three servers node1, node2, node3
-Creating table node2
--- create a schema for our project
-DROP SCHEMA node2_schema CASCADE;
-CREATE SCHEMA node2_schema;
+Open browser and connect to localhost:6050  
+username :admin@admin.com  
+Password  :admin  
+Check there are three servers node1, node2, node3  
+Creating table node2  
+-- create a schema for our project  
+DROP SCHEMA node2_schema CASCADE;  
+CREATE SCHEMA node2_schema;  
 
--- for information purposes only, show all schemas
-SHOW search_path;
+-- for information purposes only, show all schemas  
+SHOW search_path;  
 
--- set the search path to node2_schema 
-SET search_path TO node2_schema;
+-- set the search path to node2_schema   
+SET search_path TO node2_schema;  
 
--- create table foo. This table will be created in the node2_schema
-CREATE TABLE foo (
-    a int PRIMARY KEY,
-    b VARCHAR(100)
+-- create table foo. This table will be created in the node2_schema  
+CREATE TABLE foo (  
+    a int PRIMARY KEY,  
+    b VARCHAR(100)  
 );
 
--- The following will drop the schema. You may want to do
--- this after testing to 'clean things up'
--- DROP SCHEMA node2_schema CASCADE;
+-- The following will drop the schema. You may want to do  
+-- this after testing to 'clean things up'    
+-- DROP SCHEMA node2_schema CASCADE;  
 ​
 Create wrapper node 1
 -- this is run on postgres_node1
